@@ -75,6 +75,17 @@ body {
   width: 200px;
 }
 
+/* Logo nav */
+
+.fa {
+  display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
 .hero {
   background-image: url('../../assets/img/bank-tree.jpeg');
   background-position: 0 -50px;
@@ -262,6 +273,37 @@ body {
   color: #fff;
   font-weight: bold;
   padding: 10px;
+}
+
+/* style form changement de pseudo */
+
+.form-change-name {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  margin: 45px 0;
+}
+
+.champs {
+  margin-bottom: 15px;
+}
+
+.champs label {
+  font-weight: 1.5rem;
+  font-size: 1.15rem;
+  border-bottom: 1px solid #fff;
+  margin-right: 15px;
+}
+
+.champs input {
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.btns-form-change-name {
+  display: flex;
+  gap: 15px;
 }
 
 .header {

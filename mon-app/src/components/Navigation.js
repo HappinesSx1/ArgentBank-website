@@ -1,9 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 import logo from "../assets/img/argentBankLogo.png";
+import { login } from "./../reducers/log";
+import { setUserReset } from "../reducers/user.reducer";
 import { NavLink } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
 const Navigation = () => {
-  const [log, setLog] = useState();
+  const data = useSelector((state) => state.user);
+  const log = useSelector((state) => state.log.token);
+  const dispatch = useDispatch();
+
+  const SignOut = () => {
+    dispatch(login(""));
+    dispatch(setUserReset(""));
+  };
 
   return (
     <nav className="main-nav">
@@ -18,18 +28,18 @@ const Navigation = () => {
       <div>
         {log ? (
           <div>
-            <a className="main-nav-item" href="./user.html">
+            <NavLink className="main-nav-item" to="/bank">
               <i className="fa fa-user-circle"></i>
-              Tony
-            </a>
-            <a className="main-nav-item" href="./index.html">
+              {data.userName}
+            </NavLink>
+            <NavLink className="main-nav-item" to="/" onClick={SignOut}>
               <i className="fa fa-sign-out"></i>
               Sign Out
-            </a>
+            </NavLink>
           </div>
         ) : (
           <NavLink className="main-nav-item" to="/sing-in">
-            <i className="fa fa-user-circle"></i>
+            <i className="fa fa-sign-in"></i>
             Sign In
           </NavLink>
         )}
