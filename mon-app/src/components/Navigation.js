@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "../assets/img/argentBankLogo.png";
-import { login } from "./../reducers/log";
+import { logout } from "./../reducers/log";
 import { setUserReset } from "../reducers/user.reducer";
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -11,8 +11,8 @@ const Navigation = () => {
   const dispatch = useDispatch();
 
   const SignOut = () => {
-    dispatch(login(""));
-    dispatch(setUserReset(""));
+    dispatch(logout());
+    dispatch(setUserReset());
   };
 
   return (

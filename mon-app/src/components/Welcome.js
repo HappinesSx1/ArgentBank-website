@@ -1,14 +1,18 @@
 import Axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setUserEdit } from "../reducers/user.reducer";
 
 const Welcome = () => {
   const [isOpen, setIsOpen] = useState(false);
   const data = useSelector((state) => state.user);
-  const [userName, setUserName] = useState(data.userName);
   const token = useSelector((state) => state.log.token);
+  const [userName, setUserName] = useState("");
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    setUserName(data.userName);
+  }, [data]);
 
   const toggleForm = (etat) => {
     setIsOpen(etat);
@@ -49,14 +53,13 @@ const Welcome = () => {
       {isOpen && (
         <form
           className="form-change-name"
-          // onSubmit={handleSubmit}
           onSubmit={(e) => {
             handleSubmit(e); // Appeler votre fonction de gestion de la soumission ici
             toggleForm(false); // Fermer le formulaire
           }}
         >
           <div className="champs">
-            <label htmlFor="">Nouveau pseudo :</label>
+            <label htmlFor="">UserName :</label>
             <input type="text" value={userName} onChange={changeUserName} />
           </div>
           <div className="btns-form-change-name">
