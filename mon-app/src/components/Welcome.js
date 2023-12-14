@@ -25,19 +25,23 @@ const Welcome = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const response = await Axios.put(
-      "http://localhost:3001/api/v1/user/profile",
-      {
-        userName: userName,
-      },
-      {
-        "Content-Type": "application/json",
-        headers: {
-          Authorization: `Bearer ${token.token}`,
+    try {
+      await Axios.put(
+        "http://localhost:3001/api/v1/user/profile",
+        {
+          userName: userName,
         },
-      },
-      dispatch(setUserEdit({ userName }))
-    );
+        {
+          "Content-Type": "application/json",
+          headers: {
+            Authorization: `Bearer ${token.token}`,
+          },
+        }
+      );
+      dispatch(setUserEdit({ userName }));
+    } catch (error) {
+      console.error("Error updating username:", error);
+    }
   };
 
   return (

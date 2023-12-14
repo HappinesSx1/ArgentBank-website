@@ -36,10 +36,6 @@ const FormSingIn = () => {
 
       const token = response.data.body.token;
 
-      //Supprimer ici a la fin du projet
-      console.log("data api :", response.data);
-      console.log("Token :", token);
-
       dispatch(login({ token }));
       // Redirection Home
       navigate("/bank");
@@ -57,8 +53,6 @@ const FormSingIn = () => {
         );
 
         const profileUser = responseUser.data.body;
-
-        // console.log("Data API:", profileUser);
 
         dispatch(setUserProfile(profileUser));
       } catch (error) {
@@ -105,10 +99,7 @@ const FormSingIn = () => {
           <input type="checkbox" id="remember-me" />
           <label for="remember-me">Remember me</label>
         </div>
-        {/* PLACEHOLDER DUE TO STATIC SITE  */}
         <input type="submit" value="Sign In" className="sign-in-button" />
-        {/* SHOULD BE THE BUTTON BELOW 
-         <button class="sign-in-button">Sign In</button>  */}
         {error && <p>Error: {error}</p>}
         {serverError && <p>Error: {serverError}</p>}
       </form>
