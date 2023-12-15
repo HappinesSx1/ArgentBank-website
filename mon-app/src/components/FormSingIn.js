@@ -37,8 +37,8 @@ const FormSingIn = () => {
       const token = response.data.body.token;
 
       dispatch(login({ token }));
-      // Redirection Home
-      navigate("/bank");
+      // Redirection profile
+      navigate("/profile");
 
       try {
         const responseUser = await axios.post(

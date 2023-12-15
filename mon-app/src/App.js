@@ -10,17 +10,16 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/sing-in" element={<SignIn />} />
+        <Route path="/login" element={<SignIn />} />
         {/* <Route path="*" element={<Error />} /> */}
         <Route
-          path="/bank"
+          path="/profile"
           element={
             <PrivateRoute>
               <User />
             </PrivateRoute>
           }
         />
-        {/* <Route path="/bank" element={<User />} /> */}
       </Routes>
     </BrowserRouter>
   );

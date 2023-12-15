@@ -28,7 +28,7 @@ const Navigation = () => {
       <div>
         {log ? (
           <div>
-            <NavLink className="main-nav-item" to="/bank">
+            <NavLink className="main-nav-item" to="/profile">
               <i className="fa fa-user-circle"></i>
               {data.userName}
             </NavLink>
@@ -38,7 +38,7 @@ const Navigation = () => {
             </NavLink>
           </div>
         ) : (
-          <NavLink className="main-nav-item" to="/sing-in">
+          <NavLink className="main-nav-item" to="/login">
             <i className="fa fa-sign-in"></i>
             Sign In
           </NavLink>
